@@ -72,6 +72,19 @@
     _person = person;
 }
 
+- (UIImage *)personImageWithSize:(ABPersonImageFormat)aSize
+{
+    UIImage *result = nil;
+    
+    if (ABPersonHasImageData(self.person))
+    {
+        NSData *imgData = (__bridge_transfer NSData *)ABPersonCopyImageDataWithFormat(self.person, kABPersonImageFormatOriginalSize);
+        result = [UIImage imageWithData: imgData];
+    }
+    
+    return result;
+}
+
 - (ABRecordRef)person
 {
     NSAssert(self.addressBook, @"Use `setAddressBook:` to set a valid address book reference before calling this method.");
