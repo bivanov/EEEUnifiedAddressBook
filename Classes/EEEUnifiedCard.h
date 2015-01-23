@@ -35,6 +35,8 @@
 
 - (NSString *)compositeName;
 
+- (UIImage *)personImageWithSize:(ABPersonImageFormat)aSize;
+
 /**
 NSLog(@"kABPersonFirstNameProperty: %@", [self stringForProperty:kABPersonFirstNameProperty]);
 NSLog(@"kABPersonLastNameProperty: %@", [self stringForProperty:kABPersonLastNameProperty]);
