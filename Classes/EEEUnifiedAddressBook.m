@@ -138,6 +138,11 @@ void eee_handleABExternalChange(ABAddressBookRef addressBook, CFDictionaryRef in
     return addressBook;
 }
 
+- (void)dealloc
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 /**
  * Without an address book, this class will not initialize.
  * Use `+accessAddressBookWithGranted:denied:` to get at that address book reference.
